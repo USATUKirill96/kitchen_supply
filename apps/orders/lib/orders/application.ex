@@ -10,6 +10,7 @@ defmodule Orders.Application do
     children = [
       # Starts a worker by calling: Orders.Worker.start_link(arg)
       # {Orders.Worker, arg}
+      Orders.Repo,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

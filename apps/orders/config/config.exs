@@ -8,12 +8,13 @@
 # configurations or dependencies per app, it is best to
 # move said applications out of the umbrella.
 use Mix.Config
-import_config "../apps/*/config/config.exs"
 
-## Logger
-config :logger, level: :debug
+config :orders, ecto_repos: [Orders.Repo]
 
-# Message Bus
-# config :event_bus, topics: [:errors, :api_events]
+config :orders, Orders.Repo,
+  database: "orders",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost"
 
 import_config "#{Mix.env()}.exs"
