@@ -1,7 +1,6 @@
 defmodule Orders.Templates.Template do
   @moduledoc """
-    Структура шаблона заявкий
-
+  Order template struct
   """
 
   use Ecto.Schema
@@ -25,5 +24,4 @@ defmodule Orders.Templates.Template do
     |> cast(params, [:name])
     |> validate_required([:name])
   end
-
 end
