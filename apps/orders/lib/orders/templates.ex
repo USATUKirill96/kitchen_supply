@@ -30,10 +30,10 @@ defmodule Orders.Templates do
     {:error, %Ecto.Changeset{}}
 
   """
-  @spec create(String.t()) :: %Template{}
+  @spec create(atom()) :: %Template{}
   def create(name) do
     %Template{}
-    |> Template.changeset(%{"name" => name})
+    |> Template.changeset(%{name: name})
     |> Repo.insert()
   end
 
@@ -54,5 +54,4 @@ defmodule Orders.Templates do
     Repo.get!(Template, template_id)
     |> Repo.delete()
   end
-
 end

@@ -12,16 +12,16 @@ defmodule Orders.Fields.Field do
     many_to_many(:templates, Orders.Templates.Template, join_through: "fields_templates")
   end
 
-@spec __struct__ :: %Field{
-        __meta__: Ecto.Schema.Metadata.t(),
-        templates: Ecto.Association.NotLoaded.t(),
-        id: nil,
-        name: nil
-      }
+  @spec __struct__ :: %Field{
+          __meta__: Ecto.Schema.Metadata.t(),
+          templates: Ecto.Association.NotLoaded.t(),
+          id: nil,
+          name: nil
+        }
 
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:name])
-    |>validate_required([:name])
+    |> validate_required([:name])
   end
 end

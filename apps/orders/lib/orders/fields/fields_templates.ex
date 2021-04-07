@@ -6,7 +6,6 @@ defmodule Orders.Fields.FieldsTemplates do
   alias Orders.Templates.Template
   alias Orders.Repo
 
-
   @doc """
   Connect Field or list of Fields with Template.
   Requires Template to be saved in database before adding M2M connection to fields.
@@ -17,13 +16,13 @@ defmodule Orders.Fields.FieldsTemplates do
     template = template |> preload
 
     fields
-    |>Enum.map(&(connect(template, &1)))
+    |> Enum.map(&connect(template, &1))
   end
 
   def connect_to_template(field, template) do
     template
-    |>preload
-    |>connect(field)
+    |> preload
+    |> connect(field)
   end
 
   @spec connect(%Template{}, %Field{}) :: %Template{}
@@ -38,5 +37,4 @@ defmodule Orders.Fields.FieldsTemplates do
   defp preload(template) do
     Repo.preload(template, [:fields])
   end
-
 end

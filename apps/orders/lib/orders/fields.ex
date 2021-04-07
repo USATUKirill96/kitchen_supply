@@ -12,16 +12,16 @@ defmodule Orders.Fields do
     Repo.all(Field)
   end
 
-  @spec new(String.t()) :: Ecto.Changeset.t()
+  @spec new(atom()) :: Ecto.Changeset.t()
   def new(name) do
     %Field{}
-    |>Field.changeset(%{"name" => name})
+    |> Field.changeset(%{name: name})
   end
 
-  @spec create(String.t()) :: %Field{}
+  @spec create(atom()) :: %Field{}
   def create(name) do
     new(name)
-    |>Repo.insert
+    |> Repo.insert()
   end
 
   @spec delete(integer()) :: %Field{}
@@ -30,7 +30,6 @@ defmodule Orders.Fields do
     |> Repo.delete()
   end
 
-@spec connect_to_template(list(%Field{}) | %Field{}, %Template{}) :: %Template{}
+  @spec connect_to_template(list(%Field{}) | %Field{}, %Template{}) :: %Template{}
   defdelegate connect_to_template(fields, templates), to: FieldsTemplates
-
 end
