@@ -13,7 +13,5 @@ import_config "../apps/*/config/config.exs"
 ## Logger
 config :logger, level: :debug
 
-# Message Bus
-# config :event_bus, topics: [:errors, :api_events]
 
 import_config "#{Mix.env()}.exs"
