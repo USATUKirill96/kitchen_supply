@@ -17,7 +17,8 @@ defmodule InterfaceWeb.Router do
   scope "/", InterfaceWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    live "/", PageLive
+    live "/template/", TemplateLive
   end
 
   # Other scopes may use custom stacks.

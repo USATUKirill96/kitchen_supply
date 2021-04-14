@@ -13,5 +13,4 @@ import_config "../apps/*/config/config.exs"
 ## Logger
 config :logger, level: :debug
 
-
 import_config "#{Mix.env()}.exs"
